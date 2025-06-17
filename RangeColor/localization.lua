@@ -26,6 +26,7 @@ if (GetLocale() == "enUS") then
 	RANGECOLOROPTIONS_SLIDER1 = { name="Display", minText="Hotkey", maxText="Icon", tooltipText = "Shade the hotkey, the icon, or both"};
 	RANGECOLOROPTIONS_CHECK1 = { name = "Filter", tooltipText = "Show 'Shift' as 'S', same for 'Alt', 'Ctrl', etc."};
 	RANGECOLOROPTIONS_CHECK2 = { name = "Dash", tooltipText = "Show 'S-1' as 'S1', Filter must be activated."};
+	RANGECOLOROPTIONS_CHECK3 = { name = "Hide Hotkeys", tooltipText = "Hide all hotkey text on action buttons."};
 	RANGECOLOROPTIONS_RESETTOOLTIPTEXT = "This will reset all the options to an initial value."
 	
 	-- myAddons Help
@@ -59,6 +60,7 @@ if (GetLocale() == "deDE") then
 	RANGECOLOROPTIONS_SLIDER1 = { name="Display", minText="Tastenk\195\188rzel", maxText="Icon", tooltipText = "Schattierung des Tastenk\195\188rzels, des Icons oder beider"};
 	RANGECOLOROPTIONS_CHECK1 = { name = "Filter", tooltipText = "Show 'Shift' as 'S', same for 'Alt', 'Ctrl', etc."};
 	RANGECOLOROPTIONS_CHECK2 = { name = "Dash", tooltipText = "Show 'S-1' as 'S1', Filter must be activated."};
+	RANGECOLOROPTIONS_CHECK3 = { name = "Tastenk\195\188rzel verstecken", tooltipText = "Versteckt alle Tastenk\195\188rzel auf Aktionsschaltfl\195\164chen."};
 	RANGECOLOROPTIONS_RESETTOOLTIPTEXT = "This will reset all the options to an initial value."
 	
 		-- myAddons Help
@@ -92,6 +94,7 @@ if (GetLocale() == "frFR") then
 	RANGECOLOROPTIONS_SLIDER1 = { name="Display", minText="Hotkey", maxText="Icon", tooltipText = "Assombrir le raccourci, l'ic\195\180, ou les deux"};
 	RANGECOLOROPTIONS_CHECK1 = { name = "Filter", tooltipText = "Affiche 'S' au lieu de 'Shift', de m\195\170me pour 'Alt', 'Ctrl', etc."};
 	RANGECOLOROPTIONS_CHECK2 = { name = "Dash", tooltipText = "Affiche 'S1' au lieu de 'S-1'. Le filtre doit \195\170tre activ\195\169."};
+	RANGECOLOROPTIONS_CHECK3 = { name = "Masquer les raccourcis", tooltipText = "Masque tout le texte des raccourcis sur les boutons d'action."};
 	RANGECOLOROPTIONS_RESETTOOLTIPTEXT = "This will reset all the options to an initial value."
 	
 		-- myAddons Help

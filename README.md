@@ -9,6 +9,7 @@ Change the icon color when out of range, no mana or not usable.
 
 # Changelog
 * Changed default colors
+* Added ability to hide hotkeys to not interfere with other addons
 
 Based on `RangeColor 1.9`
 

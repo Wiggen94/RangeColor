@@ -113,6 +113,7 @@ function RangeColor_Initialize()
 		["Mode"] = 3,
 		["Filter"] = 1,
 		["Dash"] = 1,
+		["HideHotkeys"] = 0,
 		["Colors"] = {
 			[1] =  {r = 1.0, g = 0.0, b = 0.0},
 			[2] =  {r = 1.0, g = 1.0, b = 1.0},
@@ -166,6 +167,11 @@ function RangeColor_OnEvent()
 			RangeColor_Initialize();
 		elseif( RangeColor_Save2["Version"] == nil or RangeColor_Save2["Version"] ~= RANGECOLOR_VERSION) then
 			RangeColor_Initialize();
+		else
+			-- Add new settings to existing configurations
+			if ( RangeColor_Save2["HideHotkeys"] == nil ) then
+				RangeColor_Save2["HideHotkeys"] = 0;
+			end
 		end	
 		if( DEFAULT_CHAT_FRAME ) then
 			DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00Range Color|r, made by: |cffff3300Edswor|r, Version: |cffffff00"..RANGECOLOR_VERSION.."|r, loaded.");
@@ -220,6 +226,11 @@ function RangeColor_ActionButton(elapsed)
 	local normalTexture = getglobal(this:GetName().."NormalTexture");
 	local isUsable, notEnoughMana = IsUsableAction(ActionButton_GetPagedID(this));
 	local hotkey = getglobal(this:GetName().."HotKey");
+	
+	-- Check if hotkeys should be hidden
+	if ( RangeColor_Get("HideHotkeys") == 1 ) then
+		hotkey:Hide();
+	end
 		
 	if ( (RangeColor_Get("Mode")==3) or (RangeColor_Get("Mode")==2 and hotkey:GetText()==nil)) then
 		hotkey:SetVertexColor(0.6, 0.6, 0.6);
@@ -277,6 +288,13 @@ function RangeColor_ActionButton_UpdateHotkeys(actionButtonType)
 	local hotkey = getglobal(this:GetName().."HotKey");
 	local action = actionButtonType..this:GetID();
 	local text = GetBindingText(GetBindingKey(action), "KEY_");
+	
+	-- Check if hotkeys should be hidden
+	if ( RangeColor_Get("HideHotkeys") == 1 ) then
+		hotkey:Hide();
+		return;
+	end
+	
 	if ( string.len(text)==0 ) then
 		hotkey:Hide();
 	else
@@ -299,11 +317,17 @@ function RangeColor_UpdateHotkeysBar(bar, id)
   	hotkey = getglobal(bar.."Button"..i.."HotKey");
     action = "MULTIACTIONBAR"..id.."BUTTON"..i;
     text = GetBindingText(GetBindingKey(action),"KEY_");
-		if ( string.len(text)==0 ) then
-			hotkey:Hide();
-		else
-			hotkey:SetText(RangeColor_TransformText(text));
-			hotkey:Show();
+    
+    -- Check if hotkeys should be hidden
+    if ( RangeColor_Get("HideHotkeys") == 1 ) then
+    	hotkey:Hide();
+    else
+			if ( string.len(text)==0 ) then
+				hotkey:Hide();
+			else
+				hotkey:SetText(RangeColor_TransformText(text));
+				hotkey:Show();
+			end
 		end
   end
 end
@@ -415,6 +439,11 @@ function RangeColor_FlexBarButton_UpdateUsable(button)
 	local isUsable, notEnoughMana = IsUsableAction(FlexBarButton_GetID(button));
 	local hotkey = getglobal(button:GetName().."HotKey");
 	
+	-- Check if hotkeys should be hidden
+	if ( RangeColor_Get("HideHotkeys") == 1 ) then
+		hotkey:Hide();
+	end
+	
 	if ( (RangeColor_Get("Mode")==3) or (RangeColor_Get("Mode")==2 and hotkey:GetText()==nil)) then
 		hotkey:SetVertexColor(0.6, 0.6, 0.6);
 		if ( button.rangeTimer ) then
@@ -492,6 +521,11 @@ function RangeColor_Gypsy_ActionButtonUpdateUsable()
 	local normalTexture = getglobal(this:GetName().."NormalTexture");
 	local isUsable, notEnoughMana = IsUsableAction(Gypsy_ActionButtonGetPagedID(this));
 	local hotkey = getglobal(this:GetName().."HotKey");
+	
+	-- Check if hotkeys should be hidden
+	if ( RangeColor_Get("HideHotkeys") == 1 ) then
+		hotkey:Hide();
+	end
 	
 	if ( (RangeColor_Get("Mode")==3) or (RangeColor_Get("Mode")==2 and hotkey:GetText()==nil)) then
 		hotkey:SetVertexColor(0.6, 0.6, 0.6);

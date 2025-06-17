@@ -118,7 +118,7 @@
 	<Frame name="RangeColorOptionsFrame" toplevel="true" frameStrata="MEDIUM" movable="true"
 		enableMouse="true" hidden="true" parent="UIParent">
 		<Size>
-			<AbsDimension x="460" y="340" />
+			<AbsDimension x="460" y="370" />
 		</Size>
 		<Anchors>
 			<Anchor point="CENTER" />
@@ -526,7 +526,7 @@
 			</Frame>
 			<Frame name="RangeColorOptionsFrame_GeneralFrame" inherits="OptionFrameBoxTemplate">
 				<Size>
-					<AbsDimension x="420" y="80" />
+					<AbsDimension x="420" y="100" />
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="RangeColorOptionsFrame_NotUsableFrame">
@@ -609,6 +609,15 @@
 					<Anchor point="LEFT" relativePoint="LEFT" relativeTo="RangeColorOptionsFrame_CheckButton1">
 						<Offset>
 							<AbsDimension x="90" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="RangeColorOptionsFrame_CheckButton3" inherits="RangeColorCheckTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="RangeColorOptionsFrame_GeneralFrame">
+						<Offset>
+							<AbsDimension x="200" y="-60" />
 						</Offset>
 					</Anchor>
 				</Anchors>

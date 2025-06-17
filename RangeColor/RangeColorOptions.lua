@@ -48,6 +48,7 @@ RangeColorOptionsFrameSliders [RANGECOLOROPTIONS_SLIDER1.name] = { index = 1, Ra
 RangeColorOptionsFrameEvents = { };
 RangeColorOptionsFrameEvents [RANGECOLOROPTIONS_CHECK1.name]  = { index = 1, tooltipText = RANGECOLOROPTIONS_CHECK1.tooltipText, RangeColorVar = "Filter"};
 RangeColorOptionsFrameEvents [RANGECOLOROPTIONS_CHECK2.name]  = { index = 2, tooltipText = RANGECOLOROPTIONS_CHECK2.tooltipText, RangeColorVar = "Dash"};
+RangeColorOptionsFrameEvents [RANGECOLOROPTIONS_CHECK3.name]  = { index = 3, tooltipText = RANGECOLOROPTIONS_CHECK3.tooltipText, RangeColorVar = "HideHotkeys"};
 
 
 function RangeColorOptions_OnLoad()
@@ -137,9 +138,13 @@ function RangeColorOptions_CheckButtonOnClick()
 			else
 				enable = 0;
 			end
-			if ( value.RangeColorVar ) then
-				RangeColor_Set(value.RangeColorVar, enable);
+					if ( value.RangeColorVar ) then
+			RangeColor_Set(value.RangeColorVar, enable);
+			-- If hide hotkeys setting changed, update all hotkeys immediately
+			if ( value.RangeColorVar == "HideHotkeys" ) then
+				RangeColor_UpdateHotkeys();
 			end
+		end
 		end
 	end
 	if ( not RangeColorOptionsFrame_CheckButton1:GetChecked() ) then
