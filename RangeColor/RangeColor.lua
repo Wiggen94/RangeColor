@@ -235,6 +235,7 @@ function RangeColor_ActionButton(elapsed)
 	if ( (RangeColor_Get("Mode")==3) or (RangeColor_Get("Mode")==2 and hotkey:GetText()==nil)) then
 		hotkey:SetVertexColor(0.6, 0.6, 0.6);
 		if ( this.rangeTimer ) then
+			this.rangeTimer = this.rangeTimer - elapsed;
 			if ( this.rangeTimer <= elapsed ) then
 				if ( IsActionInRange(ActionButton_GetPagedID(this)) == 0 ) then
 					icon:SetVertexColor(RangeColor_Save2["Colors"][1].r, RangeColor_Save2["Colors"][1].g, RangeColor_Save2["Colors"][1].b);
@@ -251,15 +252,18 @@ function RangeColor_ActionButton(elapsed)
 						normalTexture:SetVertexColor(RangeColor_Save2["Colors"][8].r, RangeColor_Save2["Colors"][8].g, RangeColor_Save2["Colors"][8].b);
 					end
 				end
+				this.rangeTimer = TOOLTIP_UPDATE_TIME;
 			end
 		end
 	else
 		if ( this.rangeTimer ) then
+			this.rangeTimer = this.rangeTimer - elapsed;
 			if ( this.rangeTimer <= elapsed ) then
 				if ( IsActionInRange(ActionButton_GetPagedID(this)) == 0 ) then
 					icon:SetVertexColor(1.0, 1.0, 1.0);
 					normalTexture:SetVertexColor(1.0, 1.0, 1.0);
 				end
+				this.rangeTimer = TOOLTIP_UPDATE_TIME;
 			end
 		end
 		if ( IsActionInRange(ActionButton_GetPagedID(this)) == 0 ) then
@@ -447,6 +451,7 @@ function RangeColor_FlexBarButton_UpdateUsable(button)
 	if ( (RangeColor_Get("Mode")==3) or (RangeColor_Get("Mode")==2 and hotkey:GetText()==nil)) then
 		hotkey:SetVertexColor(0.6, 0.6, 0.6);
 		if ( button.rangeTimer ) then
+			button.rangeTimer = button.rangeTimer - elapsed;
 			if ( button.rangeTimer < 0 ) then
 				if ( IsActionInRange(FlexBarButton_GetID(button)) == 0 ) then
 					icon:SetVertexColor(RangeColor_Save2["Colors"][1].r, RangeColor_Save2["Colors"][1].g, RangeColor_Save2["Colors"][1].b);
@@ -463,15 +468,18 @@ function RangeColor_FlexBarButton_UpdateUsable(button)
 						normalTexture:SetVertexColor(RangeColor_Save2["Colors"][8].r, RangeColor_Save2["Colors"][8].g, RangeColor_Save2["Colors"][8].b);
 					end
 				end
+				button.rangeTimer = TOOLTIP_UPDATE_TIME;
 			end
 		end
 	else
 		if ( button.rangeTimer ) then
+			button.rangeTimer = button.rangeTimer - elapsed;
 			if ( button.rangeTimer < 0 ) then
 				if ( IsActionInRange(FlexBarButton_GetID(button)) == 0 ) then
 					icon:SetVertexColor(1.0, 1.0, 1.0);
 					normalTexture:SetVertexColor(1.0, 1.0, 1.0);
 				end
+				button.rangeTimer = TOOLTIP_UPDATE_TIME;
 			end
 		end
 		if ( IsActionInRange(FlexBarButton_GetID(button)) == 0 ) then
@@ -530,6 +538,7 @@ function RangeColor_Gypsy_ActionButtonUpdateUsable()
 	if ( (RangeColor_Get("Mode")==3) or (RangeColor_Get("Mode")==2 and hotkey:GetText()==nil)) then
 		hotkey:SetVertexColor(0.6, 0.6, 0.6);
 		if ( this.rangeTimer ) then
+			this.rangeTimer = this.rangeTimer - elapsed;
 			if ( this.rangeTimer < 0 ) then
 				if ( IsActionInRange(Gypsy_ActionButtonGetPagedID(this)) == 0 ) then
 					icon:SetVertexColor(RangeColor_Save2["Colors"][1].r, RangeColor_Save2["Colors"][1].g, RangeColor_Save2["Colors"][1].b);
@@ -546,15 +555,18 @@ function RangeColor_Gypsy_ActionButtonUpdateUsable()
 						normalTexture:SetVertexColor(RangeColor_Save2["Colors"][8].r, RangeColor_Save2["Colors"][8].g, RangeColor_Save2["Colors"][8].b);
 					end
 				end
+				this.rangeTimer = TOOLTIP_UPDATE_TIME;
 			end
 		end
 	else
 		if ( this.rangeTimer ) then
+			this.rangeTimer = this.rangeTimer - elapsed;
 			if ( this.rangeTimer < 0 ) then
 				if ( IsActionInRange(Gypsy_ActionButtonGetPagedID(this)) == 0 ) then
 					icon:SetVertexColor(1.0, 1.0, 1.0);
 					normalTexture:SetVertexColor(1.0, 1.0, 1.0);
 				end
+				this.rangeTimer = TOOLTIP_UPDATE_TIME;
 			end
 		end
 		if ( IsActionInRange(Gypsy_ActionButtonGetPagedID(this)) == 0 ) then
